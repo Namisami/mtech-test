@@ -62,7 +62,7 @@ export default {
 
 <style scoped>
   .custom-input {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.7em;
     height: 3em;
     width: 100%;
     border: 1px solid lightgray;

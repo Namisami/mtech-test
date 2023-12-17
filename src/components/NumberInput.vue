@@ -5,6 +5,9 @@
       <slot />
     </label>
     <input class="custom-input__input" 
+      type="number"
+      :min="min"
+      :max="max"
       :id="name" 
       :name="name"
       :placeholder="this.$slots.default()[0].children" 
@@ -16,21 +19,35 @@
 
 <script>
 export default {
-  name: 'CustomInput',
+  name: 'NumberInput',
   props: {
     name: String,
     icon: String,
+    min: Number,
+    max: Number,
   },
   created() {
   },
   data() {
     return {
-      text: ''
+      text: null
     }
   },
   methods: {
     textChange(e) {
       this.$parent.textChange(e)
+    }
+  },
+  watch: {
+    text(value) {
+      console.log(value)
+      if (value < this.min) {
+        this.text = this.min
+      } else if (value > this.max) {
+        this.text = this.max
+      } else {
+        this.text = value.toString()
+      }
     }
   }
 }
