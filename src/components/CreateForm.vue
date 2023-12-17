@@ -1,7 +1,9 @@
 <template>
   <form class="create-form" @submit="submit" method="post">
     <slot name="header" />
-    <slot />
+    <div class="create-form__fields" :style="{'grid-template-columns': `repeat(${cols}, 1fr)`}">
+      <slot />
+    </div>
     <div class="create-form__footer">
       <button class="create-form__btn create-form__cancel">
         ОТМЕНА
@@ -16,6 +18,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'CreateForm',
   data() {
@@ -23,15 +27,22 @@ export default {
       formData: {}
     }
   },
+  props: {
+    cols: Number,
+  },
   created() {
   },
   methods: {
     textChange(e) {
       this.formData[e.target.name] = e.target.value
     },
-    submit(e) {
+    async submit(e) {
       e.preventDefault()
       console.log(this.formData)
+      await axios
+        .post('https://echo.zuplo.io/', this.formData)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
   }
 }
@@ -64,5 +75,9 @@ export default {
     display: flex;
     justify-content: end;
     gap: 1em;
+  }
+  .create-form__fields {
+    display: grid;
+    column-gap: 0.5em;
   }
 </style>
