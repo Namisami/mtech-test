@@ -1,29 +1,8 @@
-# mtech
+# Тестовые формы
+## Ссылка на хостинг
+https://testformsmtech.netlify.app
 
-## Project setup
-```
+## Локальный запуск
+git clone https://github.com/Namisami/mtech-test
 npm install
-```
-
-### Docker up
-```
-docker-compose up --build -d
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
