@@ -3,6 +3,6 @@
 https://testformsmtech.netlify.app
 
 ## Локальный запуск
-git clone https://github.com/Namisami/mtech-test
-npm install
-npm run serve
+1. git clone https://github.com/Namisami/mtech-test
+2. npm install
+3. npm run serve
